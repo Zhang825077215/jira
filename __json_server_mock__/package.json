@@ -21,14 +21,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
+    "eject": "react-scripts eject",npm install --save-dev eslint-config-prettier
     "json-server": "json-server __json_server_mock__/db.json --watch --port 3001"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest",
-      "prettier"
+      "react-app/jest"
     ]
   },
   "browserslist": {
@@ -44,10 +43,6 @@
     ]
   },
   "devDependencies": {
-    "@commitlint/cli": "^16.2.3",
-    "@commitlint/config-conventional": "^16.2.1",
-    "eslint-config-prettier": "^8.5.0",
-    "husky": "^7.0.4",
     "prettier": "2.6.0"
   }
 }
