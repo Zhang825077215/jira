@@ -43,3 +43,10 @@ export const useHttp = () => {
     const {user} = useAuth()
     return (...[endpoint, config]: Parameters<typeof http>) => http(endpoint, {... config, token: user?.token})
 }
+/**
+ * 联合类型 string | number
+ * 类型别名很多时候可以和interface互换
+ * type FavoriteNumber = string | number
+ * interface 没法实现Utility types
+ * Partial<Person> Person内部变成可选参数
+ */
