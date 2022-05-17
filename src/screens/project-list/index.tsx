@@ -1,3 +1,4 @@
+import styled from "@emotion/styled";
 import * as qs from "qs";
 import { useEffect, useState } from "react";
 import { cleanObject, useMount, useDebounce } from "utils";
@@ -23,8 +24,13 @@ export const ProjectListScreen = () => {
     useMount(() => {
         client('users').then(setUsers)
     })
-    return <div>
+    return <Container>
+        <h1>项目列表</h1>
         <SearchPanel users={users} param={param} setParam={setParam} />
         <List users={users} list={list} />
-    </div>
+    </Container>
 }
+
+const Container = styled.div`
+    padding: 3.2rem;
+`

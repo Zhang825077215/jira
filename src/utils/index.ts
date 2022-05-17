@@ -3,13 +3,14 @@ import { useEffect, useState } from "react"
 // 改变对象不提倡
 export const isFalsy = (value: unknown) => value === 0 ? false : !value
 
-export const cleanObject = (object: object) => {
+export const isVoid = (value: unknown) => value === undefined || value === null || value === ''
+
+export const cleanObject = (object: {[key: string]: unknown}) => {
     const result = {...object}
     Object.keys(object).forEach(key => {
-        // @ts-ignore
+        //ts-ignore
         const value = object[key]
-        if (isFalsy(value)) {
-            // @ts-ignore
+        if (isVoid(value)) {
             delete result[key]
         }
     })
