@@ -1,23 +1,23 @@
 import { Table } from "antd";
+import {TableProps} from "antd/es/table"
 import dayjs from "dayjs";
 import { User } from "./search-panel";
 
-interface Project {
+export interface Project {
     id: string;
     name: string;
     personId: string;
     pin: boolean;
     organization: string;
     created: number;
-}
+} 
 
-interface ListProps {
-    list: Project[];
+interface ListProps extends TableProps<Project>{
     users: User[];
 }
 
-export const List = ({list, users}: ListProps) => {
-    return <Table pagination={false} columns={[{
+export const List = ({ users, ...props}: ListProps) => {
+    return <Table rowKey={"id"} pagination={false} columns={[{
             title: '名称',
             dataIndex: 'name',
             sorter: (a, b) => a.name.localeCompare(b.name)
@@ -41,5 +41,5 @@ export const List = ({list, users}: ListProps) => {
                 </span>
             }
         }
-    ]} dataSource={list} />
+    ]} {...props} />
 }
